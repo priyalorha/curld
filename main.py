@@ -34,7 +34,7 @@ def save_data(data):
         return make_response(jsonify({'error': f'parameters missing{e}'}), 200)
 
 
-@app.route('/fetch/<string:id>', method=['GET'])
+@app.route('/fetch/<string:id>', methods=['GET'])
 def get_data():
     try:
 
@@ -45,7 +45,7 @@ def get_data():
         return make_response(jsonify({'error': f'parameters missing{e}'}), 200)
 
 
-@app.route('/update/<string:data>', method=['POST'])
+@app.route('/update/<string:data>', methods=['POST'])
 def update_data(data):
     try:
         ob.update(data['id'], json.loads(**data))
@@ -56,7 +56,7 @@ def update_data(data):
         return make_response(jsonify({'error': f'parameters missing{e}'}), 200)
 
 
-@app.route('/delete/<string:id>', method=['POST'])
+@app.route('/delete/<string:id>', methods=['POST'])
 def delete_data(data):
     try:
         ob.delete(data['id'])
